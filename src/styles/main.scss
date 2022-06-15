@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --spaces-base: 1.25rem;
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+  font-size: 100%;
+}
+
+main {
+  .player > div {
+    width: 25%;
+    margin: 0 auto;
+    font-size: 2rem;
+    border: 2px solid black;
+    text-align: center;
+  }
+
+  .opciones {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+  }
+
+  .opcion {
+    max-width: 100%;
+    font-size: 5rem;
+    padding: 1.8rem;
+    cursor: pointer;
+  }
+
+  .resultado {
+    width: 25%;
+    margin: 0 auto;
+    font-size: 2rem;
+    border: 2px solid black;
+    text-align: center;
+    margin-bottom: var(--spaces-base);
+  }
+}
+
+footer {
+  padding: var(--spaces-base);
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  background-color: #282c34;
+
+  a {
+    text-decoration: underline;
+    color: white;
+    font-weight: 600;
+    font-weight: 600;
+  }
+
+  a:hover {
+    color: red;
+  }
+}
