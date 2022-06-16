@@ -4,11 +4,15 @@
 
 :root {
   --spaces-base: 1.25rem;
+  --color-background: rgba(224, 150, 116, 0.884);
+  --color-backgroundOption: lightgreen;
+  --color-white: white;
 }
 
 body {
   font-family: 'Space Mono', monospace;
   font-size: 100%;
+  background-color: var(--color-background);
 }
 
 main {
@@ -18,6 +22,7 @@ main {
     font-size: 2rem;
     border: 2px solid black;
     text-align: center;
+    background-color: var(--color-white);
   }
 
   .opciones {
@@ -40,10 +45,13 @@ main {
     border: 2px solid black;
     text-align: center;
     margin-bottom: var(--spaces-base);
+    background-color: var(--color-white);
   }
 }
 
 footer {
+  width: 100%;
+  margin: 0 auto;
   padding: var(--spaces-base);
   display: flex;
   justify-content: space-between;

@@ -3,21 +3,19 @@ import React from 'react';
 const Resultado = (props) => {
   let resultadoFinal;
 
-  if (
-    props.jugador.derrota === props.maquina.eleccion &&
-    props.jugador.eleccion
-  ) {
-    resultadoFinal = <h3>Ganador: Jugador</h3>;
-  } else if (
-    props.maquina.derrota === props.jugador.eleccion &&
-    props.jugador.elecion
-  ) {
-    resultadoFinal = <h3>Ganador: Máquina</h3>;
-  } else if (
-    props.jugador.eleccion === props.maquina.eleccion &&
-    props.jugador.eleccion
-  )
-    resultadoFinal = <h3>¡Empate!</h3>;
+  /*   console.log(props.opciones);
+  console.log(props.jugador.eleccion, props.jugador.derrota);
+  console.log(props.maquina.eleccion, props.maquina.derrota); */
+
+  if (props.jugador.eleccion != null) {
+    if (props.jugador.eleccion === props.maquina.eleccion) {
+      resultadoFinal = <h3>¡Empate!</h3>;
+    } else if (props.maquina.eleccion === props.jugador.derrota) {
+      resultadoFinal = <h3>¡Ganaste!</h3>;
+    } else {
+      resultadoFinal = <h3>¡Has perdido!</h3>;
+    }
+  }
 
   return (
     <div className="resultado">

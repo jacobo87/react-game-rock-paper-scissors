@@ -11,26 +11,46 @@ const Main = () => {
   const opciones = [
     {
       eleccion: '✊',
-      derrota: 'tijera',
+      derrota: '✌️',
       name: 'piedra',
     },
 
     {
       eleccion: '✋',
-      derrota: 'piedra',
+      derrota: '✊',
       name: 'papel',
     },
     {
       eleccion: '✌️',
-      derrota: 'papel',
+      derrota: '✋',
       name: 'tijera',
     },
   ];
 
+  const opcionesFinales = {
+    '✊': '✌️',
+    '✋': '✊',
+    '✌️': '✋',
+  };
+
   const elegirOpcionJugador = (event) => {
+    console.log('event:', event.target.context);
     const jugador = opciones.find(
-      (e) => e.eleccion === event.target.textContent,
+      // creo funcion y le paso el props el elemento, el elemento
+      // es igual a elección y me tiene que devolver el contenido del texto
+      // del archivo opcion,  <p>{props.valor.eleccion}</p>
+      (elemento) => elemento.eleccion === event.target.textContent,
+      /*
+      jugador = event.target.textContent
+       elemento = {
+      eleccion: '✌️',
+      derrota: 'papel',
+      name: 'tijera',
+    }
+      */
     );
+    console.log('event:', event.target.context);
+
     setEleccionJugador(jugador);
     eleccionMaquinaRival();
   };
@@ -52,12 +72,21 @@ const Main = () => {
         <div className="eleccion">{eleccionMaquina.eleccion}</div>
       </section>
       <div className="opciones">
-        {opciones.map((e, index) => (
-          <Opcion valor={opciones[index]} elegir={elegirOpcionJugador} />
+        {opciones.map((elemento, index) => (
+          <Opcion valor={elemento} key={index} elegir={elegirOpcionJugador}>
+            {/* {console.log(eleccion)} */}
+          </Opcion>
         ))}
       </div>
       <div className="resultados">
-        {<Resultado jugador={eleccionJugador} maquina={eleccionMaquina} />}
+        {
+          <Resultado
+            jugador={eleccionJugador}
+            maquina={eleccionMaquina}
+            opciones={opciones}
+            opcionesFinales={opcionesFinales}
+          />
+        }
       </div>
     </main>
   );
